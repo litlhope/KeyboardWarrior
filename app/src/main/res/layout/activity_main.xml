@@ -28,4 +28,9 @@
 		android:layout_height="wrap_content"
 		android:inputType="text"
 		android:hint="@string/answer_hint"/>
+
+	<WebView
+		android:id="@+id/wvAnswer"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" />
 </LinearLayout>
