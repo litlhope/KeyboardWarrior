@@ -1,7 +1,7 @@
 package kr.heja.keyboardwarrior
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
@@ -14,10 +14,10 @@ import java.util.*
 class MainActivity : AppCompatActivity(), View.OnKeyListener {
 	val TAG = "MainActivity"
 
-	var tvQuestion:TextView? = null
-	var tvAnswer:TextView? = null
-	var wvAnswer:WebView? = null
-	var etAnswer:EditText? = null
+	var tvQuestion: TextView? = null
+	var tvAnswer: TextView? = null
+	var wvAnswer: WebView? = null
+	var etAnswer: EditText? = null
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -44,14 +44,14 @@ class MainActivity : AppCompatActivity(), View.OnKeyListener {
 		var strAnswer = tvAnswer?.text.toString()
 
 		var dmp = diff_match_patch()
-		var diffList:LinkedList<diff_match_patch.Diff> = dmp.diff_main(strQuestion, strAnswer)
+		var diffList: LinkedList<diff_match_patch.Diff> = dmp.diff_main(strQuestion, strAnswer)
 
 		var html = dmp.diff_prettyHtml(diffList)
 
 		Log.d(TAG, html)
 		wvAnswer?.loadData(html, "text/html; charset=UTF-8", "UTF-8")
 
-		for (diff:diff_match_patch.Diff in diffList) {
+		for (diff: diff_match_patch.Diff in diffList) {
 			Log.d(TAG, diff.toString())
 			diff.operation
 		}
